@@ -1,0 +1,81 @@
+.customer-profile-edit-dialog {
+    width: min(358px, calc(100vw - 24px));
+    max-height: calc(100svh - 24px);
+    margin: auto;
+    padding: 24px 40px 49px;
+    border: 0;
+    border-radius: 50px;
+    background: rgb(255 255 255 / 30%);
+    backdrop-filter: blur(50px);
+    box-shadow: 0 0 5px rgb(0 0 0 / 30%);
+}
+.customer-profile-edit-dialog::backdrop {
+    background: rgb(0 0 0 / 50%);
+}
+:is(.customer-dashboard-main, .owner-main) .customer-profile-edit-dialog h2 {
+    margin: 0 0 30px;
+    padding: 5px;
+    border-bottom: 0.5px solid #000;
+    font-size: 14.4px;
+    font-weight: 400;
+    line-height: 23px;
+    color: #fff;
+}
+.customer-profile-edit-dialog form {
+    display: grid;
+    gap: 20px;
+    text-align: left;
+}
+.customer-profile-edit-dialog label {
+    display: grid;
+    gap: 5px;
+    color: #555;
+    font-size: 14.4px;
+    font-weight: 300;
+    line-height: 23px;
+}
+.customer-profile-edit-dialog input {
+    width: 100%;
+    min-height: 35px;
+    padding: 5px 15px;
+    border: 0.5px solid #555;
+    border-radius: 0;
+    background: transparent;
+    color: #fff;
+    font: inherit;
+    outline: none;
+    box-shadow: none;
+}
+.customer-profile-edit-dialog input:focus-visible {
+    outline: none;
+    border-color: #fff;
+    box-shadow: none;
+}
+.customer-profile-edit-dialog .registration-confirmation-actions {
+    margin-top: 0;
+    gap: 17px;
+}
+.customer-profile-edit-dialog .registration-confirmation-actions button {
+    flex: 1;
+    min-width: 0;
+}
+.customer-profile-edit-feedback {
+    margin: 0;
+    font-size: 12px;
+    line-height: 18px;
+    color: #fff;
+}
+.customer-password-dialog label {
+    color: #fff;
+}
+.customer-password-dialog input {
+    min-height: 36px;
+}
+[data-password-confirmation] .registration-confirmation-actions {
+    gap: 20px;
+}
+[data-password-confirmation] .registration-confirmation-actions button {
+    padding-inline: 10px;
+    white-space: nowrap;
+}
+

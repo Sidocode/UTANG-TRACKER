@@ -1,0 +1,66 @@
+.owner-profile {
+    width: min(319px, 100%);
+    margin: clamp(40px, 14vh, 112px) auto 24px;
+}
+.owner-profile dl {
+    display: grid;
+    gap: 5px;
+    margin: 0;
+    text-align: center;
+}
+.owner-profile dd {
+    margin: 0;
+    padding: 5px 10px;
+    font-size: 30px;
+    line-height: 39px;
+    color: rgb(0 0 0 / 50%);
+    text-shadow: 0 0 5px #0003;
+    overflow-wrap: anywhere;
+}
+.owner-profile-actions {
+    display: grid;
+    gap: 10px;
+    margin-top: 52px;
+}
+.owner-profile-actions button {
+    min-height: 44px;
+    border-radius: 10px;
+    padding: 10px;
+    background: rgb(255 255 255 / 20%);
+    color: #000;
+    font-size: 15px;
+    box-shadow: 0 0 5px #0002;
+    backdrop-filter: blur(5px);
+    transition: background-color 300ms ease-out;
+}
+.owner-profile-actions [data-open-password-edit] {
+    color: #fff;
+    background: rgb(31 62 116 / 50%);
+}
+.owner-profile-actions button:hover {
+    background-color: rgb(105 105 105 / 10%);
+}
+.owner-main .profile-button {
+    text-decoration: none;
+}
+.owner-main .registration-confirmation h2 {
+    color: white;
+}
+@media (max-height: 650px) {
+    .owner-profile {
+        margin-top: 32px;
+    }
+    .owner-profile-actions {
+        margin-top: 24px;
+    }
+}
+.owner-profile dt {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}

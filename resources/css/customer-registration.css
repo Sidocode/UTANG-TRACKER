@@ -1,0 +1,238 @@
+.customer-registration-page {
+    background: #87929f;
+}
+.customer-registration {
+    position: relative;
+    isolation: isolate;
+    width: 100%;
+    min-height: max(912px, 100svh);
+    margin: 0 auto;
+    padding: 214px 0 80px;
+    background: var(--customer-background) center / cover no-repeat;
+}
+.customer-registration-hanging,
+.customer-registration-lady {
+    position: absolute;
+    z-index: -1;
+    pointer-events: none;
+    height: auto;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.customer-registration-hanging {
+    top: 0;
+    width: min(423px, 100%);
+}
+.customer-registration-lady {
+    bottom: 0;
+    width: min(363px, calc(100% - 40px));
+}
+.customer-registration-brand {
+    text-align: center;
+    color: #fff;
+}
+.customer-registration-brand p {
+    font-size: 35px;
+    font-weight: 600;
+    line-height: 46px;
+}
+.customer-registration-brand span {
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 20px;
+}
+.customer-registration-form {
+    width: min(319px, calc(100% - 48px));
+    margin: 15px auto 0;
+}
+.customer-registration-form h1 {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 26px;
+    color: rgb(0 0 0 / 50%);
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.customer-registration-fields {
+    display: grid;
+    gap: 10px;
+}
+.customer-registration-field label {
+    display: block;
+    padding: 5px 0;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 16px;
+}
+.customer-registration-field input {
+    display: block;
+    width: 100%;
+    height: 41px;
+    border: 0.5px solid #000;
+    border-radius: 10px;
+    padding: 2px 20px;
+    background: rgb(255 255 255 / 10%);
+    backdrop-filter: blur(5px);
+    color: #fff;
+    font: inherit;
+    font-size: 16px;
+}
+.customer-registration-field input:focus {
+    outline: none;
+}
+.customer-registration-field input:focus-visible {
+    border-color: #fff;
+}
+.customer-registration-submit {
+    width: 100%;
+    min-height: 44px;
+    margin-top: 30px;
+    border-radius: 10px;
+    background: rgb(31 62 116 / 50%);
+    backdrop-filter: blur(50px);
+    box-shadow: 0 0 5px rgb(0 0 0 / 15%);
+    color: #fff;
+    font-size: 15px;
+    transition: background-color 300ms ease-out;
+}
+.customer-registration-submit:hover,
+.customer-registration-submit:active {
+    background: rgb(31 62 116 / 65%);
+}
+.customer-registration-error,
+.customer-registration-feedback {
+    font-size: 13px;
+    line-height: 1.4;
+    color: #fff;
+    background: #334155;
+    border-radius: 5px;
+    padding: 6px 8px;
+    margin-top: 6px;
+}
+.customer-registration-error[hidden],
+.customer-registration-feedback[hidden] {
+    display: none;
+}
+.customer-login-links {
+    margin-top: 15px;
+    display: grid;
+    gap: 5px;
+    justify-items: center;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 16px;
+    color: #fff;
+}
+.customer-login-links button {
+    color: inherit;
+    font: inherit;
+    padding: 0;
+}
+.customer-login-links a {
+    color: #000;
+    text-decoration: none;
+    margin-left: 5px;
+}
+.customer-login-links a:hover,
+.customer-login-links button:hover {
+    text-decoration: underline;
+}
+.customer-pending-title {
+    font-size: 35px;
+    font-weight: 600;
+    line-height: 46px;
+}
+.customer-pending-subtitle {
+    display: block;
+    max-width: calc(100vw - 48px);
+    margin-inline: auto;
+}
+.customer-pending {
+    margin-top: 24px;
+}
+.customer-pending-card {
+    margin: 0;
+    min-height: 200px;
+    padding: 24px 26px;
+    background: rgb(255 255 255 / 30%);
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgb(0 0 0 / 30%);
+    display: grid;
+    gap: 10px;
+}
+.customer-pending-card div {
+    display: flex;
+    gap: 12px;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 5px;
+    border-bottom: 0.5px solid #555;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 1.6;
+}
+.customer-pending-card dt {
+    color: #555;
+    flex-shrink: 0;
+}
+.customer-pending-card dd {
+    color: #000;
+    margin: 0;
+    text-align: right;
+    overflow-wrap: anywhere;
+    min-width: 0;
+}
+.customer-pending-waiting {
+    margin-top: 19px;
+    padding: 10px 0;
+    text-align: center;
+    color: rgb(0 0 0 / 50%);
+    font-size: 15px;
+    line-height: 20px;
+}
+.customer-pending-back {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0;
+    text-decoration: none;
+}
+.customer-rejected-back {
+    margin-top: 30px;
+}
+@media (max-width: 419px) {
+    .customer-registration {
+        padding-top: 51vw;
+    }
+    .customer-registration-brand p {
+        font-size: clamp(26px, 8.33vw, 35px);
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    .customer-registration-submit {
+        transition: none;
+    }
+}
+@media (min-width: 600px) {
+    .customer-registration {
+        max-width: none;
+        min-height: max(800px, 100svh);
+        padding: 196px 24px 24px;
+    }
+    .customer-registration-brand,
+    .customer-registration-form {
+        position: relative;
+        left: 19.5px;
+    }
+    .customer-registration-brand {
+        width: fit-content;
+        max-width: calc(100% - 39px);
+        margin-inline: auto;
+    }
+    .customer-registration-hanging,
+    .customer-registration-lady {
+        left: calc(50% + 19.5px);
+    }
+}

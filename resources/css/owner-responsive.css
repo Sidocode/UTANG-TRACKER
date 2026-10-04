@@ -1,0 +1,117 @@
+/* Preserve the 1280 × 800 owner composition without scaling the page. */
+@media (min-width: 900px) {
+    .owner-shell {
+        --sidebar: clamp(180px, 17.2vw, 240px);
+    }
+    .owner-shell .owner-main {
+        padding: 20px clamp(20px, 2.5vw, 40px) 16px;
+    }
+    .owner-shell .owner-sidebar {
+        padding-top: 38px;
+    }
+    .owner-shell .owner-sidebar nav {
+        margin-top: clamp(28px, 6vh, 60px);
+        gap: 10px;
+    }
+    .owner-shell .nav-item {
+        font-size: clamp(16px, 1.4vw, 20px);
+    }
+    .owner-shell .table-scroll > table {
+        min-width: 0;
+        width: 100%;
+    }
+    .owner-shell .table-scroll :is(th, td) {
+        padding-inline: clamp(8px, 1vw, 16px);
+        font-size: 13px;
+        line-height: 18px;
+        white-space: normal;
+        overflow-wrap: break-word;
+    }
+    .owner-shell :is(.transactions-screen, .payment-screen, .utang-screen) {
+        margin-top: 28px;
+    }
+    .owner-shell :is(.transaction-toolbar, .payment-toolbar, .utang-toolbar) {
+        gap: 12px;
+    }
+    .owner-shell :is(.transaction-toolbar, .payment-toolbar, .utang-toolbar) .customer-search {
+        width: clamp(180px, 20vw, 266px);
+        flex-shrink: 1;
+    }
+    .owner-shell .dashboard-stats {
+        gap: 12px;
+        flex-wrap: nowrap;
+    }
+    .owner-shell .stat {
+        flex: 1;
+    }
+    .owner-shell .stat :is(h2, .stat-caption) {
+        white-space: normal;
+        font-size: 12px;
+    }
+    .owner-shell .stat-value {
+        font-size: clamp(28px, 3vw, 40px);
+    }
+    .owner-shell .transaction-entry-card {
+        min-height: 0;
+        padding: 24px;
+    }
+    .owner-shell :is(.entry-item-head, .entry-item-row) {
+        min-width: 0;
+        grid-template-columns: minmax(120px, 2fr) 132px minmax(85px, 1fr) minmax(85px, 1fr) 44px;
+        gap: 10px;
+    }
+    .owner-shell .entry-footer {
+        margin: 20px 0 0;
+    }
+    .owner-shell .entry-total {
+        gap: 12px;
+    }
+    .owner-shell .entry-total > span {
+        font-size: 15px;
+    }
+    .owner-shell .entry-total output {
+        font-size: 32px;
+    }
+}
+
+/* Full-size touch targets beside the value instead of two stacked rows. */
+@media (pointer: coarse) {
+    .owner-shell .entry-quantity {
+        display: flex;
+        align-items: center;
+    }
+    .owner-shell .entry-quantity input {
+        min-height: 44px;
+        padding: 8px 4px;
+        text-align: center;
+        border-radius: 5px 0 0 5px;
+    }
+    .owner-shell .entry-stepper {
+        position: static;
+        flex: 0 0 88px;
+        height: 44px;
+        grid-template-columns: repeat(2, 44px);
+        grid-template-rows: 44px;
+    }
+    .owner-shell .entry-stepper img {
+        display: none;
+    }
+    .owner-shell .entry-stepper button {
+        border: 0.5px solid #555;
+        font-size: 20px;
+        color: #555;
+    }
+    .owner-shell .entry-stepper [data-step="-1"] {
+        grid-column: 1;
+        grid-row: 1;
+    }
+    .owner-shell .entry-stepper [data-step="-1"]::after { content: "−"; }
+    .owner-shell .entry-stepper [data-step="1"] {
+        grid-column: 2;
+        grid-row: 1;
+    }
+    .owner-shell .entry-stepper [data-step="1"]::after { content: "+"; }
+    .owner-shell .transaction-entry-screen {
+        scrollbar-width: thin;
+    }
+}

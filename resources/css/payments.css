@@ -1,0 +1,111 @@
+.payment-screen {
+    margin-top: 56px;
+    min-height: 0;
+    overflow-y: auto;
+    padding-bottom: 12px;
+    scrollbar-width: thin;
+    scrollbar-color: #8194ad transparent;
+}
+.payment-verification-content {
+    width: 100%;
+    max-width: 774px;
+    margin: 30px auto 20px;
+}
+.payment-verification-summary.utang-detail-summary {
+    border-radius: 10px;
+    padding: 28px 27px;
+    box-shadow: none;
+}
+.payment-verification-summary dl {
+    margin: 0;
+}
+.payment-verification-note {
+    color: #555;
+    font-size: 14.4px;
+    font-weight: 300;
+    line-height: 1.6;
+    margin: 28px 0 10px;
+}
+.verification-reject span {
+    display: flex;
+    align-items: center;
+    min-height: 32px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background: rgb(255 255 255 / 30%);
+}
+.payment-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+.payment-toolbar .customer-search {
+    flex-shrink: 0;
+}
+.record-payment {
+    margin-left: auto;
+    white-space: nowrap;
+}
+.payment-records-scroll,
+.payment-records-scroll > table {
+    height: 440px;
+    box-shadow: none;
+}
+.payment-records-table {
+    min-width: 907px;
+}
+.payment-records-table th,
+.payment-records-table td {
+    padding-left: 14px;
+    padding-right: 10px;
+}
+.payment-records-table th {
+    white-space: nowrap;
+}
+.payment-records-table th:nth-child(1),
+.payment-records-table td:nth-child(1):not([colspan]) {
+    width: 14%;
+    white-space: nowrap;
+}
+.payment-records-table th:nth-child(2),
+.payment-records-table td:nth-child(2) {
+    width: 19%;
+}
+.payment-records-table th:nth-child(3),
+.payment-records-table td:nth-child(3) {
+    width: 14%;
+}
+.payment-records-table th:nth-child(4),
+.payment-records-table td:nth-child(4) {
+    width: 20%;
+}
+.payment-records-table th:nth-child(5),
+.payment-records-table td:nth-child(5) {
+    width: 20%;
+    overflow-wrap: anywhere;
+}
+.payment-records-table th:nth-child(6),
+.payment-records-table td:nth-child(6) {
+    width: 13%;
+}
+.payment-status-pending {
+    color: #e4af06;
+}
+.payment-status-verified {
+    color: #7cb201;
+}
+.payment-status-rejected {
+    color: #940f00;
+}
+.payment-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 22px;
+}
+@media (max-width: 1100px) {
+    .payment-toolbar {
+        gap: 15px;
+    }
+}

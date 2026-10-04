@@ -1,0 +1,632 @@
+@font-face {
+    font-family: Geist;
+    src: url("/assets/fonts/Geist-Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-display: swap;
+}
+@font-face {
+    font-family: Geist;
+    src: url("/assets/fonts/Geist-Regular.ttf") format("truetype");
+    font-weight: 400 500;
+    font-display: swap;
+}
+@font-face {
+    font-family: Geist;
+    src: url("/assets/fonts/Geist-SemiBold.ttf") format("truetype");
+    font-weight: 600;
+    font-display: swap;
+}
+@font-face {
+    font-family: Geist;
+    src: url("/assets/fonts/Geist-Light.ttf") format("truetype");
+    font-weight: 300;
+    font-display: swap;
+}
+:root {
+    font-family: Geist, Arial, sans-serif;
+    color: #000;
+    font-synthesis: weight;
+    --sidebar: 251px;
+    --table-header: #b2bbca;
+}
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+}
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+button {
+    font: inherit;
+    cursor: pointer;
+}
+button {
+    background: none;
+    border: 0;
+}
+a {
+    color: inherit;
+}
+button:focus-visible,
+a:focus-visible,
+[tabindex]:focus-visible {
+    outline: 2px solid #16345b;
+    outline-offset: 4px;
+}
+p,
+h1,
+h2 {
+    margin: 0;
+}
+.owner-shell {
+    height: 100dvh;
+    min-height: 600px;
+    display: grid;
+    grid-template-columns: var(--sidebar) minmax(0, 1fr);
+    background: #b2c5d4 var(--owner-background) center/cover
+        no-repeat;
+    overflow: hidden;
+}
+.owner-sidebar {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 100%;
+    padding: 53px 0 32px;
+    align-items: center;
+}
+.brand {
+    display: block;
+    width: 156px;
+    height: 112px;
+}
+.brand img {
+    display: block;
+}
+.owner-sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 65px;
+    width: 167px;
+}
+.nav-item {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 5px;
+    color: white;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: left;
+    text-decoration: none;
+    white-space: nowrap;
+}
+.nav-item span {
+    position: relative;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 3px;
+}
+.nav-item {
+    transition: color 100ms ease-out;
+}
+.nav-item:not(.is-active) span::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 100%;
+    border-bottom: 1px solid currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 300ms ease-out;
+}
+@media (hover: hover) {
+    .nav-item:hover {
+        color: #000;
+    }
+    .nav-item:not(.is-active):hover span::after {
+        transform: scaleX(1);
+    }
+}
+.nav-item:not(.is-active):focus-visible span::after,
+.nav-item:not(.is-active):active span::after {
+    transform: scaleX(1);
+}
+.nav-item.is-active {
+    color: #000;
+}
+.nav-item.is-active span {
+    border-bottom-color: currentColor;
+}
+
+.owner-main[aria-busy="true"] {
+    cursor: progress;
+}
+.owner-main:focus {
+    outline: none;
+}
+
+.table-scroll tbody tr {
+    transition: background-color 300ms;
+}
+
+.table-scroll tbody tr:has(td:not(.empty-state)) {
+    cursor: pointer;
+}
+
+@media (hover: hover) {
+    .table-scroll tbody tr:has(td:not(.empty-state)):hover {
+        background-color: rgb(105 105 105 / 5%);
+    }
+}
+
+.table-scroll tbody tr:has(td:not(.empty-state)):active,
+.table-scroll tbody tr:has(td:not(.empty-state)):focus-within {
+    background-color: rgb(105 105 105 / 5%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .nav-item,
+    .nav-item span::after,
+    .table-scroll tbody tr {
+        transition: none;
+    }
+}
+.logout {
+    margin-top: auto;
+    width: 167px;
+}
+.owner-main {
+    min-width: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 24px 61px 17px;
+    background: rgba(255, 255, 255, 0.1);
+}
+.owner-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 0.5px solid rgba(255, 255, 255, 0.5);
+    padding: 10px;
+    min-height: 61px;
+    color: #fff;
+}
+.owner-header h1 {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 16.5px;
+}
+.owner-header p {
+    font-size: 15px;
+    line-height: 16.5px;
+    margin-top: 5px;
+}
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 23px;
+    padding: 5px 10px;
+}
+.notification-button {
+    border-radius: 5px;
+    min-width: 44px;
+    min-height: 44px;
+    display: grid;
+    place-items: center;
+    padding: 0;
+}
+.profile-button {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border: 0;
+    border-radius: 5px;
+    padding: 2px 5px;
+    font-size: 15px;
+    font-weight: 300;
+    color: #000;
+}
+.profile-button span {
+    padding: 0 2px;
+    line-height: 16.5px;
+}
+
+.notification-button,
+.profile-button {
+    transition: color 300ms ease-out;
+}
+.profile-button img {
+    transition: filter 300ms ease-out;
+}
+
+@media (hover: hover) {
+    .profile-button:hover {
+        color: #5b5b5b;
+    }
+    .profile-button:hover img {
+        filter: brightness(0) invert(35.68627%);
+    }
+    .notification-button:hover img {
+        filter: brightness(0) invert(41.17647%);
+    }
+}
+
+.profile-button:active,
+.profile-button:focus-visible {
+    color: #5b5b5b;
+}
+.profile-button:active img,
+.profile-button:focus-visible img {
+    filter: brightness(0) invert(35.68627%);
+}
+
+.notification-button img {
+    transition: filter 300ms ease-out;
+}
+.notification-button:active img,
+.notification-button:focus-visible img {
+    filter: brightness(0) invert(41.17647%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .notification-button,
+    .notification-button img,
+    .profile-button,
+    .profile-button img {
+        transition: none;
+    }
+}
+.dashboard-stats {
+    display: flex;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 25px 0 0;
+    flex-shrink: 0;
+}
+.stat {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    min-width: 0;
+}
+.stat h2 {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 16.5px;
+    color: white;
+    white-space: nowrap;
+}
+.stat-value {
+    font-size: 40px;
+    line-height: 32px;
+    font-variant-numeric: tabular-nums;
+}
+.money {
+    font-family: Arial, sans-serif;
+}
+.stat-caption {
+    font-size: 13px;
+    line-height: 16.5px;
+    color: #e6e9ee;
+    white-space: nowrap;
+}
+.dashboard-sections {
+    margin-top: 25px;
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #8194ad transparent;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 0 16px 10px 0;
+}
+.activity-section {
+    flex-shrink: 0;
+    min-height: 258px;
+    padding-top: 7px;
+}
+.activity-section h2 {
+    font-size: 15px;
+    line-height: 17px;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+.table-scroll {
+    height: 222px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.3);
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: #8194ad transparent;
+}
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+    table-layout: fixed;
+    font-size: 14.4px;
+    line-height: 23px;
+}
+th,
+td {
+    text-align: left;
+    padding: 16px 22.4px;
+    height: 55px;
+    overflow-wrap: anywhere;
+}
+th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background: var(--table-header);
+    color: white;
+    font-weight: 500;
+    font-size: 14.4px;
+}
+td {
+    border-top: 1px solid #b2bbca;
+    font-weight: 300;
+    color: #212529;
+}
+.payments-table th:nth-child(-n + 3) {
+    width: 22%;
+}
+.payments-table th:nth-child(4) {
+    width: 16%;
+}
+.payments-table th:nth-child(5) {
+    width: 18%;
+}
+.status-success {
+    color: #679500;
+}
+.status-danger {
+    color: #940f00;
+}
+.status-pending {
+    color: #987400;
+}
+.empty-state {
+    text-align: center;
+    height: 165px;
+    color: #465367;
+}
+dialog {
+    border: 1px solid #b2bbca;
+    border-radius: 12px;
+    padding: 28px;
+    max-width: 420px;
+    box-shadow: 0 10px 40px #0003;
+}
+dialog::backdrop {
+    background: #10254166;
+}
+dialog h2 {
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+dialog p {
+    line-height: 1.6;
+}
+dialog form {
+    text-align: right;
+    margin-top: 20px;
+}
+.dialog-close {
+    padding: 10px 20px;
+    border-radius: 6px;
+    background: #243f61;
+    color: white;
+}
+.skip-link {
+    position: fixed;
+    top: -100px;
+    z-index: 10;
+    background: white;
+    padding: 12px;
+}
+.skip-link:focus {
+    top: 8px;
+    left: 8px;
+}
+@media (max-width: 1100px) {
+    :root {
+        --sidebar: 210px;
+    }
+    .owner-main {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    .dashboard-stats {
+        gap: 12px;
+    }
+    .stat h2 {
+        font-size: 10px;
+    }
+    .stat-value {
+        font-size: 32px;
+    }
+    .stat-caption {
+        font-size: 11px;
+    }
+    th,
+    td {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+    .nav-item {
+        font-size: 18px;
+    }
+}
+@media (max-width: 850px) {
+    :root {
+        --sidebar: 170px;
+    }
+    .owner-sidebar nav,
+    .logout {
+        width: 145px;
+    }
+    .nav-item {
+        font-size: 16px;
+    }
+    .owner-main {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .dashboard-stats {
+        flex-wrap: wrap;
+        row-gap: 20px;
+    }
+    .stat {
+        flex: 1 1 28%;
+    }
+    .owner-header {
+        padding: 10px 0;
+    }
+    .header-actions {
+        gap: 8px;
+        padding-right: 0;
+    }
+    .owner-header p {
+        font-size: 12px;
+    }
+    .owner-header h1 {
+        font-size: 18px;
+    }
+    table {
+        min-width: 590px;
+    }
+    .activity-section h2 {
+        font-size: 12px;
+    }
+}
+
+.owner-shell {
+    grid-template-rows: minmax(0, 1fr);
+}
+.owner-sidebar,
+.owner-main {
+    min-height: 0;
+}
+.owner-header {
+    height: 61px;
+    flex-shrink: 0;
+    padding: 5px 10px;
+}
+.header-actions {
+    padding: 0 10px;
+}
+
+/* Show the draggable thumb without a visible track. */
+.table-scroll,
+.dashboard-sections {
+    scrollbar-width: thin;
+    scrollbar-color: #8194ad transparent;
+}
+
+.table-scroll::-webkit-scrollbar,
+.dashboard-sections::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    background: transparent;
+}
+
+.table-scroll::-webkit-scrollbar-track,
+.dashboard-sections::-webkit-scrollbar-track,
+.table-scroll::-webkit-scrollbar-corner,
+.dashboard-sections::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+.table-scroll::-webkit-scrollbar-thumb,
+.dashboard-sections::-webkit-scrollbar-thumb {
+    background: #8194ad;
+    border-radius: 999px;
+}
+
+.table-scroll::-webkit-scrollbar-thumb:hover,
+.dashboard-sections::-webkit-scrollbar-thumb:hover {
+    background: #617793;
+}
+
+/* Keep the header outside the vertical scrolling area. */
+.table-scroll > table {
+    display: grid;
+    grid-template-rows: 55px minmax(0, 1fr);
+    height: 222px;
+}
+.table-scroll thead {
+    display: block;
+    background: var(--table-header);
+    padding-right: 6px;
+}
+.table-scroll tbody {
+    display: block;
+    min-height: 0;
+    overflow-y: auto;
+    scrollbar-gutter: stable;
+    scrollbar-width: thin;
+    scrollbar-color: #8194ad transparent;
+}
+.table-scroll tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+.table-scroll th {
+    position: static;
+}
+.payments-table td:nth-child(-n + 3) {
+    width: 22%;
+}
+.payments-table td:nth-child(4) {
+    width: 16%;
+}
+.payments-table td:nth-child(5) {
+    width: 18%;
+}
+.table-scroll tbody::-webkit-scrollbar {
+    width: 6px;
+}
+.table-scroll tbody::-webkit-scrollbar-track {
+    background: transparent;
+}
+.table-scroll tbody::-webkit-scrollbar-thumb {
+    background: #8194ad;
+    border-radius: 999px;
+}
+
+.table-scroll tbody tr.is-selected {
+    background-color: rgb(105 105 105 / 5%);
+}
+.table-scroll tbody tr:focus-visible {
+    outline-offset: -2px;
+}
+
+/* Dashboard rows share the page's vertical scroll instead of trapping gestures. */
+.dashboard-sections .table-scroll,
+.dashboard-sections .table-scroll > table {
+    height: auto;
+    min-height: 222px;
+}
+.dashboard-sections .table-scroll > table {
+    grid-template-rows: 55px auto;
+}
+.dashboard-sections .table-scroll tbody {
+    overflow: visible;
+    scrollbar-gutter: auto;
+}
+.dashboard-sections .table-scroll thead {
+    padding-right: 0;
+}
